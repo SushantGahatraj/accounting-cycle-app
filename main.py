@@ -1,21 +1,12 @@
 import streamlit as st
 import pandas as pd
+import os
 
 
-def main():
-    st.title("Accounting Cycle App — Demo")
-    st.write("This is a minimal Streamlit app to verify Streamlit + pandas are working in this project.")
-
-    df = pd.DataFrame(
-        {
-            "Account": ["Cash", "Revenue", "Expenses"],
-            "Amount": [1000, 500, 200],
-        }
-    )
-
-    st.subheader("Sample accounts table")
-    st.table(df)
+APP_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
-if __name__ == "__main__":
-    main()
+def get_data_path(filename: str) -> str:
+    '''Returns the path to an asset file, given its filename.'''
+    return os.path.join(APP_PATH, "data", filename)
+
