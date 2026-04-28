@@ -240,7 +240,9 @@ def _show_transaction_form():
 
         with col1:
             tx_date = st.date_input("Date", value=date.today())
-            description = st.text_input("Description", value="")
+            # Use a multi-line text area for the description so the user has more room
+            # to enter longer journal entry descriptions. Height is in pixels.
+            description = st.text_area("Description", value="", height=120)
 
         with col2:
             account_name = st.text_input("Account name", value="Cash")
