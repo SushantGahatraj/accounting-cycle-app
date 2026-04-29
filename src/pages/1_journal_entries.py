@@ -56,4 +56,18 @@ def _next_entry_id(df: pd.DataFrame) -> int:
        return 1
    return int(v) + 1
 
+def append_entries(new_rows: List[Dict], csv_path: str) -> pd.DataFrame:
+   existing = load_journal_entries(csv_path)
+   nid = _next_entry_id(existing)
+   new_df = pd.DataFrame(new_rows)
+   if new_df.empty:
+       return existing
+   new_df = new_df.copy()
+   new_df["debit"] = pd.to_numeric(new_df.get("debit", 0), errors="coerce").fillna(0.0)
+   new_df["credit"] = pd.to_numeric(new_df.get("credit", 0), errors="coerce").fillna(0.0)
+   new_df["entry_id"] = list(range(nid, nid + len(new_df)))
+   combined = pd.concat([existing, new_df], ignore_index=True, sort=False)
+   save_journal_entries(combined, csv_path)
+   return combined
+
 
