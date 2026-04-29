@@ -70,4 +70,8 @@ def append_entries(new_rows: List[Dict], csv_path: str) -> pd.DataFrame:
    save_journal_entries(combined, csv_path)
    return combined
 
+def create_transaction_id() -> str:
+   return f"TX-{datetime.now().isoformat(timespec='seconds')}"
+
+
 
