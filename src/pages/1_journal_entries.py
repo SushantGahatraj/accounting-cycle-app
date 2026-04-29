@@ -99,6 +99,15 @@ def validate_transaction_lines(lines: List[Dict]) -> Tuple[bool, str]:
        return False, f"Transaction not balanced: Debits = {total_d:.2f}, Credits = {total_c:.2f}."
    return True, ""
 
+def delete_entries_by_ids(df: pd.DataFrame, ids: List[int], csv_path: str) -> pd.DataFrame:
+   if not ids:
+       return df
+   df2 = df.copy()
+   df2["entry_id"] = pd.to_numeric(df2["entry_id"], errors="coerce").astype(pd.Int64Dtype())
+   remaining = df2[~df2["entry_id"].isin(ids)].reset_index(drop=True)
+   save_journal_entries(remaining, csv_path)
+   return remaining
+
 
 
 
