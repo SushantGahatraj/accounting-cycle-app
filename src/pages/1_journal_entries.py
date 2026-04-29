@@ -178,4 +178,24 @@ def _show_transaction_form():
            st.session_state["transaction_lines"] = []
            st.info("Cleared the current unsaved transaction lines.")
 
+def _show_saved_entries_section():
+   df = load_journal_entries(CSV_PATH)
+   if df.empty:
+       st.info("No journal entries saved yet. Add some using the form on the left.")
+       return df
+   st.subheader("Saved Journal Entries")
+   disp = df.copy()
+   disp["debit"] = disp["debit"].map(lambda x: f"{x:.2f}")
+   disp["credit"] = disp["credit"].map(lambda x: f"{x:.2f}")
+   st.dataframe(disp, use_container_width=True)
+   try:
+       ids = list(pd.to_numeric(df["entry_id"], errors="coerce").dropna().astype(int))
+   except Exception:
+       ids = []
+   selected = st.multiselect("Select entries to delete (by entry_id)", options=ids)
+   if selected and st.button("Delete selected entries"):
+       remaining = delete_entries_by_ids(df, selected, CSV_PATH)
+       st.success(f"Deleted {len(selected)} entries.")
+       st.experimental_rerun()
+   return df
 
