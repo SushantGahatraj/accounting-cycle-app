@@ -58,17 +58,17 @@ def check_balance(df: pd.DataFrame) -> tuple:
     is_balanced = round(total_debits, 2) == round(total_credits, 2)
     return is_balanced, total_debits, total_credits
 
-# ── Page Config ────────────────────────────────────────────────────
+#Page Configuration
 st.title("⚖️ Trial Balance")
 st.write("Auto-generated from your journal entries. Shows total debits and credits per account.")
 
-# ── Load data ──────────────────────────────────────────────────────
+#Load Datas
 df = load_entries()
 
 if df.empty:
     st.info("📭 No journal entries found. Please add transactions on the Journal Entries page first.")
 else:
-    # ── Check if balanced ──────────────────────────────────────────
+    # Check if books are balanced
     is_balanced, total_debits, total_credits = check_balance(df)
 
     if is_balanced:
@@ -76,7 +76,7 @@ else:
     else:
         st.error(f"❌ Not balanced! Total Debits: ${total_debits:,.2f} | Total Credits: ${total_credits:,.2f}")
 
-    # ── Build and display trial balance ────────────────────────────
+    # Build and display trial balance table
     trial_balance = build_trial_balance(df)
 
     st.subheader("📋 Trial Balance Table")
@@ -92,7 +92,7 @@ else:
 
     st.dataframe(display_df, use_container_width=True)
 
-    # ── Totals row ─────────────────────────────────────────────────
+    # Total Rows
     st.markdown("---")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -103,7 +103,7 @@ else:
         difference = total_debits - total_credits
         st.metric("Difference", f"${difference:,.2f}")
 
-      # ── Chart ──────────────────────────────────────────────────────
+      #Charts
     st.subheader("📊 Debits vs Credits by Account")
 
     fig, ax = plt.subplots(figsize=(10, 5))
