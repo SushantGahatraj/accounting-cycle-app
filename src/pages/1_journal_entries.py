@@ -1,6 +1,8 @@
 """Journal Entries Streamlit page.
 
-Single canonical implementation (clean, no duplicates).
+This file is the single authoritative implementation for page 1 (Journal Entries).
+It intentionally contains only one copy of each helper and UI block to avoid
+the duplicated/fragmented state from earlier edits.
 """
 
 import os
