@@ -73,5 +73,10 @@ def append_entries(new_rows: List[Dict], csv_path: str) -> pd.DataFrame:
 def create_transaction_id() -> str:
    return f"TX-{datetime.now().isoformat(timespec='seconds')}"
 
+def add_line_to_session(line: Dict) -> None:
+   if "transaction_lines" not in st.session_state:
+       st.session_state["transaction_lines"] = []
+   st.session_state["transaction_lines"].append(line)
+
 
 
