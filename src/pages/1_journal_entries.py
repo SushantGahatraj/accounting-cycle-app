@@ -44,5 +44,7 @@ def load_journal_entries(csv_path: str) -> pd.DataFrame:
     df["credit"] = pd.to_numeric(df.get("credit", 0), errors="coerce").fillna(0.0)
     return df[cols]
 
-
+def save_journal_entries(df: pd.DataFrame, csv_path: str) -> None:
+   os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+   df.to_csv(csv_path, index=False)
 
