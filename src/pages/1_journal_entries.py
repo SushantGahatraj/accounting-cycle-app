@@ -199,3 +199,14 @@ def _show_saved_entries_section():
        st.experimental_rerun()
    return df
 
+def main():
+   st.title("📝 Journal Entries")
+   st.write("Create and manage journal entry lines. Transactions must balance (total debits = total credits).")
+   left_col, right_col = st.columns([3, 2])
+   with left_col:
+       _show_transaction_form()
+   with right_col:
+       _show_saved_entries_section()
+
+if __name__ == "__main__":
+   main()
