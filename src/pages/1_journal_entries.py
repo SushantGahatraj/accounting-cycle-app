@@ -102,6 +102,7 @@ def validate_transaction_lines(lines: List[Dict]) -> Tuple[bool, str]:
             return False, f"Line {i}: Debit and Credit must be non-negative."
         if d == 0 and c == 0:
             return False, f"Line {i}: Please enter either a Debit or Credit amount."
+        total_d += d
         total_c += c
     if abs(total_d - total_c) > 0.01:
         return False, f"Transaction not balanced: Debits = {total_d:.2f}, Credits = {total_c:.2f}."
