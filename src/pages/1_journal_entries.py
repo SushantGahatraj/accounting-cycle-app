@@ -48,3 +48,12 @@ def save_journal_entries(df: pd.DataFrame, csv_path: str) -> None:
    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
    df.to_csv(csv_path, index=False)
 
+def _next_entry_id(df: pd.DataFrame) -> int:
+   if df.empty:
+       return 1
+   v = pd.to_numeric(df["entry_id"], errors="coerce").max()
+   if pd.isna(v):
+       return 1
+   return int(v) + 1
+
+
