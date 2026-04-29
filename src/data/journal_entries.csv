@@ -1,0 +1,3 @@
+entry_id,transaction_id,date,description,account_name,account_type,debit,credit
+1,TX-2026-04-29T15:40:38,2026-04-29,Milk bought at 500,Cash,Asset,500.0,0.0
+2,TX-2026-04-29T15:40:38,2026-04-29,Milk bought at 500,Cash,Expense,0.0,500.0
