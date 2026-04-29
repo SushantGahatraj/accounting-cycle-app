@@ -1,3 +1,5 @@
 entry_id,transaction_id,date,description,account_name,account_type,debit,credit
 1,TX-2026-04-29T14:18:47,2026-04-29,Cash received from Kripesh ,Cash,Asset,0.01,0.0
 2,TX-2026-04-29T14:18:47,2026-04-29,Cash received from Kripesh ,service revenue,Revenue,0.0,0.01
+3,TX-2026-04-29T14:20:55,2026-04-29,Paid to Kripesh,Cash,Asset,0.0,0.01
+4,TX-2026-04-29T14:20:55,2026-04-29,Paid to Kripesh,Cash,Revenue,0.01,0.0

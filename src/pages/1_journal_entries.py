@@ -183,7 +183,7 @@ def _show_transaction_form():
                 append_entries(rows, CSV_PATH)
                 st.success(f"Transaction saved with id {tx_id}. {len(rows)} lines added.")
                 st.session_state["transaction_lines"] = []
-                st.experimental_rerun()
+                st.rerun()
     with col_cancel:
         if st.button("Clear current transaction"):
             st.session_state["transaction_lines"] = []
@@ -208,7 +208,7 @@ def _show_saved_entries_section():
     if selected and st.button("Delete selected entries"):
         remaining = delete_entries_by_ids(df, selected, CSV_PATH)
         st.success(f"Deleted {len(selected)} entries.")
-        st.experimental_rerun()
+        st.rerun()
     return df
 
 
