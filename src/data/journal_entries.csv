@@ -7,3 +7,6 @@ entry_id,transaction_id,date,description,account_name,account_type,debit,credit
 6,TX-2026-04-29T14:24:54,2026-04-28,Bought milk from cash and credit,cash,Asset,0.0,0.01
 7,TX-2026-04-29T14:27:21,2026-04-28,bought car ,cash,Asset,0.01,0.0
 8,TX-2026-04-29T14:27:21,2026-04-28,bought car ,cash,Expense,0.0,0.01
+9,TX-2026-04-29T14:33:29,2026-04-29,Bought house,house,Asset,4000000.0,0.0
+10,TX-2026-04-29T14:33:29,2026-04-29,Bought house,cash,Expense,0.0,2000000.0
+11,TX-2026-04-29T14:33:29,2026-04-29,Bought house,loan,Liability,0.0,2000000.0
