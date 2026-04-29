@@ -143,12 +143,19 @@ def _show_transaction_form():
             "debit": float(debit),
             "credit": float(credit),
         }
-        ok, message = validate_transaction_lines([line])
-        if not ok:
-            st.error(message)
+        # ── Only check that debit or credit is greater than 0 ──────────
+        # We don't check balance here because the transaction
+        # is not complete yet — balance is checked on Save
+        d = float(debit)
+        c = float(credit)
+        if d == 0 and c == 0:
+            st.error("❌ Please enter either a Debit or Credit amount greater than 0.")
+        elif d > 0 and c > 0:
+            st.error("❌ A line can only have Debit OR Credit, not both.")
         else:
             add_line_to_session(line)
-            st.success("Line added to the transaction (not yet saved).")
+            st.success("✅ Line added! Add more lines or click Save Transaction.")
+
     st.markdown("**Current transaction lines (unsaved)**")
     temp_lines = st.session_state.get("transaction_lines", [])
     if temp_lines:
