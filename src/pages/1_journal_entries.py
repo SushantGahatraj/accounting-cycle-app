@@ -100,9 +100,8 @@ def validate_transaction_lines(lines: List[Dict]) -> Tuple[bool, str]:
             return False, f"Line {i}: Debit and Credit must be numbers."
         if d < 0 or c < 0:
             return False, f"Line {i}: Debit and Credit must be non-negative."
-        if not ((d > 0 and c == 0) or (c > 0 and d == 0)):
-            return False, f"Line {i}: Exactly one of Debit or Credit must be greater than 0."
-        total_d += d
+        if d == 0 and c == 0:
+            return False, f"Line {i}: Please enter either a Debit or Credit amount."
         total_c += c
     if abs(total_d - total_c) > 0.01:
         return False, f"Transaction not balanced: Debits = {total_d:.2f}, Credits = {total_c:.2f}."
@@ -131,8 +130,8 @@ def _show_transaction_form():
         with col2:
             account_name = st.text_input("Account name", value="Cash")
             account_type = st.selectbox("Account type", ["Asset", "Liability", "Equity", "Revenue", "Expense"])
-        debit = st.number_input("Debit", min_value=0.0, value=0.0, format="%.2f")
-        credit = st.number_input("Credit", min_value=0.0, value=0.0, format="%.2f")
+        debit = st.number_input("Debit", min_value=0.0, value=0.0, step=100.0, format="%.2f")
+        credit = st.number_input("Credit", min_value=0.0, value=0.0, step=100.0, format="%.2f")
         add_line = st.form_submit_button("Add line to current transaction")
     if add_line:
         line = {
