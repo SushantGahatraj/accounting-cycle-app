@@ -2,52 +2,20 @@
   You can now view your Streamlit app in your browser.
 
   Local URL: http://localhost:8502
-  Network URL: http://172.29.5.121:8502
+  Network URL: http://192.168.1.178:8502
 
   For better performance, install the Watchdog module:
 
   $ xcode-select --install
   $ pip install watchdog
             
-2026-04-29 15:35:46.188 Please replace `use_container_width` with `width`.
+2026-05-06 19:10:40.294 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:36:04.724 Please replace `use_container_width` with `width`.
+2026-05-06 19:10:42.062 Please replace `use_container_width` with `width`.
 
 `use_container_width` will be removed after 2025-12-31.
 
 For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:36:06.398 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:40:22.647 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:40:36.870 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:40:38.062 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:40:38.139 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-2026-04-29 15:40:47.928 Please replace `use_container_width` with `width`.
-
-`use_container_width` will be removed after 2025-12-31.
-
-For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
-/Users/sushantgahatraj/Desktop/accounting-cycle-app/src/pages/3_income_statement.py:140: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
-  ax.set_xticklabels(chart_df["Account"], rotation=45, ha="right")
