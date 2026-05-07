@@ -42,5 +42,64 @@ def display_section(title: str, df: pd.DataFrame, emoji: str):
     total = df["net_balance"].sum()
     st.markdown(f"**Total {title}: ${abs(total):,.2f}**")
     st.markdown("---")
-    return 
+    return total
 
+# Page Config 
+st.title("🏦 Balance Sheet")
+st.write("Auto-generated from your journal entries. Shows assets, liabilities, and equity.")
+
+#  Load data 
+df = load_entries()
+
+if df.empty:
+    st.info("📭 No journal entries found. Please add transactions on the Journal Entries page first.")
+else:
+    # Get each section 
+    assets_df = get_section(df, "Asset")
+    liabilities_df = get_section(df, "Liability")
+    equity_df = get_section(df, "Equity")
+
+    #  Display Balance Sheet 
+    st.subheader("📋 Balance Sheet")
+    st.markdown("---")
+
+    total_assets = display_section("Assets", assets_df, "💰")
+    total_liabilities = display_section("Liabilities", liabilities_df, "💳")
+    total_equity = display_section("Equity", equity_df, "👤")
+
+    # Check if balanced 
+    st.markdown("### ⚖️ Balance Check")
+    total_liabilities_equity = total_liabilities + total_equity
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Total Assets", f"${abs(total_assets):,.2f}")
+    with col2:
+        st.metric("Total Liabilities + Equity",
+                  f"${abs(total_liabilities_equity):,.2f}")
+    with col3:
+        difference = abs(total_assets) - abs(total_liabilities_equity)
+        st.metric("Difference", f"${difference:,.2f}")
+
+    if abs(difference) < 0.01:
+        st.success("✅ Balance Sheet is balanced! Assets = Liabilities + Equity")
+    else:
+        st.warning("⚠️ Balance Sheet is not balanced. Check your journal entries.")
+
+    #  Chart 
+    st.subheader("📊 Balance Sheet Chart")
+
+    labels = ["Assets", "Liabilities", "Equity"]
+    values = [
+        abs(total_assets),
+        abs(total_liabilities),
+        abs(total_equity)
+    ]
+    colors = ["#4CAF50", "#F44336", "#2196F3"]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.bar(labels, values, color=colors)
+    ax.set_ylabel("Amount ($)")
+    ax.set_title("Assets vs Liabilities vs Equity")
+    plt.tight_layout()
+    st.pyplot(fig)
