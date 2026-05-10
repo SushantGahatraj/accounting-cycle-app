@@ -41,14 +41,14 @@ def get_indicator(value: float, good: float, okay: float, higher_is_better: bool
             return "🔴 Poor"
         
 #  Page Configuration
-st.title("📊 Financial Ratio Dashboard")
+st.title("Financial Ratio Dashboard")
 st.write("Auto-calculated from your journal entries. Shows the financial health of your business.")
 
 #  Load data 
 df = load_entries()
 
 if df.empty:
-    st.info("📭 No journal entries found. Please add transactions on the Journal Entries page first.")
+    st.info("No journal entries found. Please add transactions on the Journal Entries page first.")
 else:
     #  Calculate base values 
     total_assets = get_total(df, "Asset", "debit") - get_total(df, "Asset", "credit")
@@ -75,8 +75,8 @@ else:
     debt_to_equity = (total_liabilities / total_equity
                       if total_equity != 0 else 0)
 
-    #  Display Ratios 
-    st.subheader("📋 Financial Ratios")
+    #  Display Ratios
+    st.subheader("Financial Ratios")
     st.markdown("---")
 
     # Current Ratio
@@ -124,7 +124,7 @@ else:
     st.markdown("---")
 
     #  Summary Chart 
-    st.subheader("📊 Business Health Overview")
+    st.subheader("Business Health Overview")
 
     fig, ax = plt.subplots(figsize=(10, 5))
 

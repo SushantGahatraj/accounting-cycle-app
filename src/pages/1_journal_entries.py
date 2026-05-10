@@ -1,7 +1,4 @@
 """Journal Entries Streamlit page.
-
-Clean, single-page implementation. Streamlit imports page modules and runs
-their top-level code — so we call `main()` at import time (no __main__ guard).
 """
 
 import os
@@ -220,7 +217,7 @@ def _show_saved_entries_section():
 
 
 def main():
-    st.title("📝 Journal Entries")
+    st.title("Journal Entries")
     st.write("Create and manage journal entry lines. Transactions must balance (total debits = total credits).")
     left_col, right_col = st.columns([4, 2])
     with left_col:
