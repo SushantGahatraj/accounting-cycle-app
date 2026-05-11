@@ -23,5 +23,3 @@ entry_id,transaction_id,date,description,account_name,account_type,debit,credit
 ",Vehicle,Asset,12000.0,0.0
 20,TX-2026-05-10T17:33:07,2026-05-10,"Bought company vehicle worth $12,000 on credit
 ",Accounts Payable,Liability,0.0,12000.0
-21,TX-2026-05-10T22:29:51,2026-05-10,"Owner invested $50,000",Cash,Asset,50000.0,0.0
-22,TX-2026-05-10T22:29:51,2026-05-10,"Owner invested $50,000",Owner's Equity,Equity,0.0,50000.0
