@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ── Path helper ────────────────────────────────────────────────────
+#  Path helper 
 APP_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def get_data_path(filename: str) -> str:
@@ -18,17 +18,17 @@ def load_entries() -> pd.DataFrame:
     else:
         return pd.DataFrame()
 
-# ── Page Config ────────────────────────────────────────────────────
-st.title("🏦 Balance Sheet")
+#  Page Config 
+st.title("Balance Sheet")
 st.write("Auto-generated from your journal entries.")
 
-# ── Load data ──────────────────────────────────────────────────────
+#  Load data 
 df = load_entries()
 
 if df.empty:
-    st.info("📭 No journal entries found. Please add transactions first.")
+    st.info("No journal entries found. Please add transactions first.")
 else:
-    # ── Calculate each section directly ────────────────────────────
+    #  Calculate each section directly 
     # Assets: debit increases assets, credit decreases assets
     assets = df[df["account_type"] == "Asset"]
     total_assets = assets["debit"].sum() - assets["credit"].sum()
@@ -53,12 +53,12 @@ else:
     # Total equity = owner equity + net income
     total_equity = total_equity_base + net_income
 
-    # ── Display Balance Sheet ──────────────────────────────────────
-    st.subheader("📋 Balance Sheet")
+    #  Display Balance Sheet 
+    st.subheader("Balance Sheet")
     st.markdown("---")
 
     # Assets
-    st.markdown("### 💰 Assets")
+    st.markdown("Assets")
     asset_summary = assets.groupby("account_name").agg(
         debit=("debit", "sum"),
         credit=("credit", "sum")
@@ -74,7 +74,7 @@ else:
     st.markdown("---")
 
     # Liabilities
-    st.markdown("### 💳 Liabilities")
+    st.markdown("Liabilities")
     liab_summary = liabilities.groupby("account_name").agg(
         debit=("debit", "sum"),
         credit=("credit", "sum")
@@ -86,11 +86,11 @@ else:
             st.write(row["account_name"])
         with col2:
             st.write(f"${row['balance']:,.2f}")
-    st.markdown(f"**Total Liabilities: ${total_liabilities:,.2f}**")
+    st.markdown(f"Total Liabilities: ${total_liabilities:,.2f}")
     st.markdown("---")
 
     # Equity
-    st.markdown("### 👤 Equity")
+    st.markdown("Equity")
     equity_summary = equity.groupby("account_name").agg(
         debit=("debit", "sum"),
         credit=("credit", "sum")
@@ -109,11 +109,11 @@ else:
         st.write("Retained Earnings (Net Income)")
     with col2:
         st.write(f"${net_income:,.2f}")
-    st.markdown(f"**Total Equity: ${total_equity:,.2f}**")
+    st.markdown(f"Total Equity: ${total_equity:,.2f}")
     st.markdown("---")
 
     # ── Balance Check ──────────────────────────────────────────────
-    st.markdown("### ⚖️ Balance Check")
+    st.markdown("Balance Check")
     total_liabilities_and_equity = total_liabilities + total_equity
     difference = total_assets - total_liabilities_and_equity
 
@@ -130,8 +130,8 @@ else:
     else:
         st.warning("⚠️ Balance Sheet is not balanced. Check your journal entries.")
 
-    # ── Chart ──────────────────────────────────────────────────────
-    st.subheader("📊 Balance Sheet Chart")
+    # = Chart 
+    st.subheader("Balance Sheet Chart")
     fig, ax = plt.subplots(figsize=(8, 5))
     labels = ["Assets", "Liabilities", "Equity"]
     values = [total_assets, total_liabilities, total_equity]
