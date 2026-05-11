@@ -67,6 +67,25 @@ else:
     total_liabilities = display_section("Liabilities", liabilities_df, "💳")
     total_equity = display_section("Equity", equity_df, "👤")
 
+    # ── Add net income to equity ───────────────────────────────────────
+    # Net income belongs to the owner and increases equity
+    total_revenue = get_section(df, "Revenue")["net_balance"].sum()
+    total_expenses = get_section(df, "Expense")["net_balance"].sum()
+    net_income = abs(total_revenue) - abs(total_expenses)
+
+    # Display net income as part of equity
+    st.markdown("### 👤 Retained Earnings (Net Income)")
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.write("Net Income (Revenue - Expenses)")
+    with col2:
+        st.write(f"${net_income:,.2f}")
+    st.markdown(f"**Total Retained Earnings: ${net_income:,.2f}**")
+    st.markdown("---")
+
+    # Add net income to total equity for balance check
+    total_equity = total_equity + net_income
+
     # Check if balanced 
     st.markdown("### ⚖️ Balance Check")
     total_liabilities_equity = total_liabilities + total_equity
