@@ -1,5 +1,25 @@
 entry_id,transaction_id,date,description,account_name,account_type,debit,credit
-1,TX-2026-04-29T15:40:38,2026-04-29,Milk bought at 500,Cash,Asset,500.0,0.0
-2,TX-2026-04-29T15:40:38,2026-04-29,Milk bought at 500,Cash,Expense,0.0,500.0
-3,TX-2026-05-09T21:48:44,2026-05-09,Bought gooda ,Cash,Asset,50000.0,0.0
-4,TX-2026-05-09T21:48:44,2026-05-09,Bought gooda ,Goods,Asset,0.0,50000.0
+1,TX-2026-05-10T17:21:45,2026-05-10,"Owner invested $50,000 to start the business",Cash,Asset,50000.0,0.0
+2,TX-2026-05-10T17:21:45,2026-05-10,"Owner invested $50,000 to start the business",Owner's Equity,Equity,0.0,50000.0
+3,TX-2026-05-10T17:23:07,2026-05-10,"Took a $20,000 bank loan
+",Cash,Asset,20000.0,0.0
+4,TX-2026-05-10T17:23:07,2026-05-10,"Took a $20,000 bank loan
+",Loans Payable,Liability,0.0,20000.0
+5,TX-2026-05-10T17:24:09,2026-05-10,"Bought office equipment for $15,000 cash",Equipment,Asset,15000.0,0.0
+6,TX-2026-05-10T17:24:09,2026-05-10,"Bought office equipment for $15,000 cash",Cash,Asset,0.0,15000.0
+7,TX-2026-05-10T17:25:10,2026-05-10,"Earned $30,000 from client services",Cash,Asset,30000.0,0.0
+8,TX-2026-05-10T17:25:10,2026-05-10,"Earned $30,000 from client services",Service Revenue,Revenue,0.0,30000.0
+9,TX-2026-05-10T17:27:06,2026-05-10,"Earned $10,000 from consulting",Cash,Asset,10000.0,0.0
+10,TX-2026-05-10T17:27:06,2026-05-10,"Earned $10,000 from consulting",Consulting Revenue,Revenue,0.0,10000.0
+11,TX-2026-05-10T17:28:03,2026-05-10,"Paid $5,000 monthly rent",Rent Expense,Expense,5000.0,0.0
+12,TX-2026-05-10T17:28:03,2026-05-10,"Paid $5,000 monthly rent",Cash,Asset,0.0,5000.0
+13,TX-2026-05-10T17:29:16,2026-04-30,"Paid $8,000 employee salaries",Salary Expense,Expense,8000.0,0.0
+14,TX-2026-05-10T17:29:16,2026-04-30,"Paid $8,000 employee salaries",Cash,Asset,0.0,8000.0
+15,TX-2026-05-10T17:30:25,2026-05-05,"Paid $2,000 for office supplies",Supplies Expense,Expense,2000.0,0.0
+16,TX-2026-05-10T17:30:25,2026-05-05,"Paid $2,000 for office supplies",Cash,Asset,0.0,2000.0
+17,TX-2026-05-10T17:32:08,2026-05-10,"Paid $3,000 loan repayment",Loans Payable,Liability,3000.0,0.0
+18,TX-2026-05-10T17:32:08,2026-05-10,"Paid $3,000 loan repayment",Cash,Asset,0.0,3000.0
+19,TX-2026-05-10T17:33:07,2026-05-10,"Bought company vehicle worth $12,000 on credit
+",Vehicle,Asset,12000.0,0.0
+20,TX-2026-05-10T17:33:07,2026-05-10,"Bought company vehicle worth $12,000 on credit
+",Accounts Payable,Liability,0.0,12000.0
