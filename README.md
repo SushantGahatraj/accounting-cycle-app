@@ -32,14 +32,7 @@ pip install streamlit pandas matplotlib
 ```
 
 ### Run the app
-```bash
 streamlit run dist/main.py
-```
-
-The app will open automatically in your browser at:
-http://localhost:8501
-
-
 
 ## How to Use the App
 
@@ -126,6 +119,3 @@ following ways:
 - Generating docstrings and comments for functions
 - Helping structure the README documentation
 
-All code was written, reviewed, and understood by the student. No
-vibe-coding was used. Every function and line of code can be explained
-by the author.
