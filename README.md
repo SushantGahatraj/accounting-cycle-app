@@ -62,6 +62,7 @@ Total Debits must ALWAYS equal Total Credits
 
 
 ## File Structure
+```
 accounting-cycle-app/
 ├── README.md                        # This file
 ├── demo.mp4                         # App demo video
@@ -81,7 +82,7 @@ accounting-cycle-app/
 ├── data/                        # Stable data files
 └── pages/                       # Stable versions of all pages
 
-
+```
 
 ## ✨ Features
 
