@@ -1,7 +1,6 @@
 import os
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 #  Path helper 
 APP_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -126,18 +125,11 @@ else:
     #  Summary Chart 
     st.subheader("Business Health Overview")
 
-    fig, ax = plt.subplots(figsize=(10, 5))
-
+    # Use Streamlit's native charting to avoid matplotlib tick issues
     ratios = ["Current Ratio", "Net Profit Margin %", "Return on Assets %", "Debt to Equity"]
     values = [current_ratio, net_profit_margin, return_on_assets, debt_to_equity]
-    colors = ["#4CAF50", "#2196F3", "#FF9800", "#9C27B0"]
-
-    ax.bar(ratios, values, color=colors)
-    ax.set_ylabel("Value")
-    ax.set_title("Financial Ratios Overview")
-    ax.set_xticklabels(ratios, rotation=15, ha="right")
-    plt.tight_layout()
-    st.pyplot(fig)
+    chart_df = pd.DataFrame({"Value": values}, index=ratios)
+    st.bar_chart(chart_df)
 
     #  Raw numbers used for calculations
     with st.expander("📂 See raw numbers used for calculations"):
