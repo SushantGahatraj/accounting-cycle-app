@@ -1,7 +1,6 @@
 # 📊 Accounting Cycle Simulator
 
-A data-driven web application built with Python and Streamlit that simulates
-the full accounting cycle for small businesses and accounting students.
+A data-driven web application built with Python and Streamlit that simulates the full accounting cycle for small businesses and accounting students.
 
 
 
@@ -9,15 +8,7 @@ the full accounting cycle for small businesses and accounting students.
 
 The Accounting Cycle Simulator allows users to record financial transactions
 as journal entries and automatically generates key financial statements and
-ratios. It is designed as both a learning tool for accounting students and a
-practical bookkeeping tool for small businesses.
-
-This app was built as a final project for a Python Data App Development course,
-and is directly related to topics covered in BU212 (Accounting II) at Caldwell
-University, including financial statement analysis, cash flow statements,
-partnerships, and corporations.
-
-
+ratios. It is designed as both a learning tool for accounting students and a practical bookkeeping tool for small businesses.
 
 ##  How to Run
 
